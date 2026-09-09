@@ -36,7 +36,7 @@ Program dibagi menjadi 3 lapisan (di luar class entry point `Main`):
 - **Service** — menyimpan seluruh logika/fungsi CRUD serta ArrayList penampung data.
 - **Util** — menyimpan fungsi bantu untuk validasi input.
 
-![Struktur Folder Project]
+[Struktur Folder Project]
 
 <img width="238" height="353" alt="image" src="https://github.com/user-attachments/assets/60f8d766-950e-443c-941a-96124c7c253e" />
 
@@ -50,23 +50,27 @@ Program dibagi menjadi 3 lapisan (di luar class entry point `Main`):
    3. Menu Catatan Harian
    4. Keluar
 
-   ![Menu Utama]
+   [Menu Utama]
+   
    <img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/44855c6f-39e7-4e45-bc4f-000680dd7a7f" />
 
-2. Menu Utama akan terus muncul kembali (perulangan `while`) selama pengguna belum memilih opsi **Keluar**.
-3. Setiap pilihan menu (1–3) akan mengarahkan pengguna ke **submenu** masing-masing entitas, yang juga memiliki perulangannya sendiri agar pengguna bisa melakukan banyak operasi berturut-turut sebelum kembali ke Menu Utama:
+3. Menu Utama akan terus muncul kembali (perulangan `while`) selama pengguna belum memilih opsi **Keluar**.
+4. Setiap pilihan menu (1–3) akan mengarahkan pengguna ke **submenu** masing-masing entitas, yang juga memiliki perulangannya sendiri agar pengguna bisa melakukan banyak operasi berturut-turut sebelum kembali ke Menu Utama:
    - **Menu Data Orang Tua**: Tambah, Tampilkan Semua, Update, Hapus, Kembali.
    - **Menu Data Anak**: Daftarkan Anak Baru, Tampilkan Semua, Update, Hapus, Kembali.
    - **Menu Catatan Harian**: Input Laporan Harian, Lihat Riwayat Aktivitas Anak, Edit Laporan, Hapus Laporan, Kembali.
 
-   ![Submenu Orang Tua, Anak, dan Catatan Harian]
+   [Submenu Orang Tua, Anak, dan Catatan Harian]
+   
    <img width="241" height="126" alt="image" src="https://github.com/user-attachments/assets/60ca5dd5-5116-401c-8024-05c4c542b99b" />
+   
    <img width="211" height="126" alt="image" src="https://github.com/user-attachments/assets/ec21df25-6f36-4c35-8eaa-b3eb24c06f50" />
+   
    <img width="251" height="130" alt="image" src="https://github.com/user-attachments/assets/625fa500-d397-4642-af5b-033760154bc5" />
 
 
-4. Pemilihan menu dilakukan sepenuhnya melalui **inputan angka** dari keyboard, diproses menggunakan struktur percabangan `switch-case`.
-5. Setiap operasi Create/Update akan meminta input data satu per satu, dan setiap input divalidasi sebelum diterima oleh sistem.
+6. Pemilihan menu dilakukan sepenuhnya melalui **inputan angka** dari keyboard, diproses menggunakan struktur percabangan `switch-case`.
+7. Setiap operasi Create/Update akan meminta input data satu per satu, dan setiap input divalidasi sebelum diterima oleh sistem.
 
    ![Contoh Input Data (Tambah Orang Tua/Anak)]
    <img width="294" height="256" alt="image" src="https://github.com/user-attachments/assets/47f86005-4590-4cab-bf03-bf8b21fdc434" />
@@ -76,23 +80,26 @@ Program dibagi menjadi 3 lapisan (di luar class entry point `Main`):
    <img width="559" height="186" alt="image" src="https://github.com/user-attachments/assets/e98b1610-0d93-4ea4-8ec2-514f29bc6f88" />
 
 
-7. Relasi antar data dijaga secara sederhana:
+8. Relasi antar data dijaga secara sederhana:
    - Anak tidak bisa didaftarkan jika `idOrangTua` yang dimasukkan belum terdaftar di data OrangTua.
    - Catatan Harian tidak bisa dibuat jika `idAnak` yang dimasukkan belum terdaftar di data Anak.
 
-   ![Validasi Relasi Data Gagal]
+   [Validasi Relasi Data Gagal]
+   
    <img width="477" height="180" alt="image" src="https://github.com/user-attachments/assets/278791f6-454b-4e0f-9263-50782a5ed44e" />
 
 
-8. Fungsi **Read** menampilkan data menggunakan perulangan `for`, baik untuk menampilkan seluruh daftar (anak/orang tua) maupun untuk menampilkan riwayat aktivitas harian milik seorang anak tertentu.
+10. Fungsi **Read** menampilkan data menggunakan perulangan `for`, baik untuk menampilkan seluruh daftar (anak/orang tua) maupun untuk menampilkan riwayat aktivitas harian milik seorang anak tertentu.
 
-   ![Riwayat Aktivitas Harian Anak]
+   [Riwayat Aktivitas Harian Anak]
+   
    <img width="685" height="203" alt="image" src="https://github.com/user-attachments/assets/0a6d835b-7367-41e0-bcbb-0a5e7e1d19b8" />
 
 
-9. Program hanya berhenti ketika pengguna memilih menu **Keluar (4)** pada Menu Utama.
+11. Program hanya berhenti ketika pengguna memilih menu **Keluar (4)** pada Menu Utama.
 
-   ![Program Keluar]
+   [Program Keluar]
+   
    <img width="544" height="243" alt="image" src="https://github.com/user-attachments/assets/0c1f158a-99a1-4aed-9223-d35df9a88463" />
 
 
@@ -113,7 +120,8 @@ Seluruh input dari pengguna divalidasi melalui class `InputValidator` sebelum di
 - **Format tanggal** (`ambilTanggal`) — memastikan tanggal diinput dengan format `YYYY-MM-DD`.
 - **Pilihan menu dalam rentang valid** (`ambilPilihanMenu`) — menolak input huruf atau angka di luar rentang pilihan menu yang tersedia.
 
-![Contoh Validasi Input Gagal]
+[Contoh Validasi Input Gagal]
+
 <img width="298" height="132" alt="image" src="https://github.com/user-attachments/assets/a038fb0d-f413-4861-9933-358e35593fc6" />
 
 Selain itu, terdapat validasi penting, seperti:
