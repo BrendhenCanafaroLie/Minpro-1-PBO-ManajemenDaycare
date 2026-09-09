@@ -72,15 +72,17 @@ Program dibagi menjadi 3 lapisan (di luar class entry point `Main`):
 6. Pemilihan menu dilakukan sepenuhnya melalui **inputan angka** dari keyboard, diproses menggunakan struktur percabangan `switch-case`.
 7. Setiap operasi Create/Update akan meminta input data satu per satu, dan setiap input divalidasi sebelum diterima oleh sistem.
 
-   ![Contoh Input Data (Tambah Orang Tua/Anak)]
+   [Contoh Input Data (Tambah Orang Tua/Anak)]
+   
    <img width="294" height="256" alt="image" src="https://github.com/user-attachments/assets/47f86005-4590-4cab-bf03-bf8b21fdc434" />
 
 
-   ![Contoh Data Berhasil Ditambahkan]
+   [Contoh Data Berhasil Ditambahkan]
+   
    <img width="559" height="186" alt="image" src="https://github.com/user-attachments/assets/e98b1610-0d93-4ea4-8ec2-514f29bc6f88" />
 
 
-8. Relasi antar data dijaga secara sederhana:
+9. Relasi antar data dijaga secara sederhana:
    - Anak tidak bisa didaftarkan jika `idOrangTua` yang dimasukkan belum terdaftar di data OrangTua.
    - Catatan Harian tidak bisa dibuat jika `idAnak` yang dimasukkan belum terdaftar di data Anak.
 
