@@ -17,7 +17,7 @@ Seluruh data disimpan sementara di memori menggunakan `ArrayList` selama program
 ## 2. Struktur Program
 
 ```
-src/
+src/main/java/
 ├── Main.java                      # Class entry point (menu utama)
 ├── model/
 │   ├── OrangTua.java               # Entitas data orang tua/wali
@@ -27,7 +27,7 @@ src/
 │   ├── OrangTuaService.java        # Logic CRUD untuk OrangTua
 │   ├── AnakService.java            # Logic CRUD untuk Anak
 │   └── CatatanHarianService.java   # Logic CRUD untuk CatatanHarian
-└── util/
+└── helper/
     └── InputValidator.java         # Helper validasi input pengguna
 ```
 
@@ -106,7 +106,7 @@ Program dibagi menjadi 3 lapisan (di luar class entry point `Main`):
 
 
 
-## 3. Penjelasan Penerapan Nilai Tambah
+## 4. Penjelasan Penerapan Nilai Tambah
 
 ### a. Access Modifier
 Seluruh atribut pada class model (`OrangTua`, `Anak`, `CatatanHarian`) dideklarasikan sebagai `private`, sedangkan method yang perlu diakses dari luar class dideklarasikan `public`. Pada `Main.java`, method-method submenu (`menuOrangTua`, `menuAnak`, `menuCatatanHarian`, `tampilkanMenuUtama`) dideklarasikan `private static` karena hanya digunakan secara internal di dalam class `Main`.
@@ -133,5 +133,5 @@ Selain itu, terdapat validasi penting, seperti:
 
 
 
-## 4. Catatan Tambahan
+## 5. Catatan Tambahan
 - ID Catatan Harian (`idCatatan`) dibuat otomatis oleh sistem (auto-increment, format `C1`, `C2`, dst.) agar pengasuh tidak perlu menghafal/mengetik ID secara manual.
