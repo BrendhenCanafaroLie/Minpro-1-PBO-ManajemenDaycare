@@ -37,6 +37,7 @@ Program dibagi menjadi 3 lapisan (di luar class entry point `Main`):
 - **Util** — menyimpan fungsi bantu untuk validasi input.
 
 ![Struktur Folder Project]
+
 <img width="238" height="353" alt="image" src="https://github.com/user-attachments/assets/60f8d766-950e-443c-941a-96124c7c253e" />
 
 
