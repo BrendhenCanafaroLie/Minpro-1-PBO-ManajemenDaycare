@@ -1,0 +1,15 @@
+# Hasil kompilasi Java
+bin/
+*.class
+
+# File sistem operasi
+.DS_Store
+Thumbs.db
+
+# File IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
