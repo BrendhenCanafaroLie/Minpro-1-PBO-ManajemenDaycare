@@ -1,4 +1,5 @@
 # Minpro - PBO - Sistem Manajemen Daycare (Penitipan Anak)
+### Brendhen Canafaro Lie 2509116033 (Kelas A)
 
 ## 1. Deskripsi Singkat Program
 
@@ -12,8 +13,6 @@ Program ini mengelola tiga entitas utama:
 
 Seluruh data disimpan sementara di memori menggunakan `ArrayList` selama program berjalan (tanpa database eksternal), sehingga cocok digunakan sebagai simulasi pencatatan sederhana.
 
-![Tampilan Selamat Datang](screenshots/01-welcome.png)
-*Gambar 1. Tampilan awal program saat pertama kali dijalankan.*
 
 ## 2. Struktur Program
 
@@ -37,29 +36,12 @@ Program dibagi menjadi 3 lapisan (di luar class entry point `Main`):
 - **Service** — menyimpan seluruh logika/fungsi CRUD serta ArrayList penampung data.
 - **Util** — menyimpan fungsi bantu untuk validasi input.
 
-![Struktur Folder Project](screenshots/02-struktur-folder.png)
-*Gambar 2. Struktur folder project pada IDE (package `model`, `service`, `helper`, dan `Main.java`).*
+![Struktur Folder Project]
+<img width="238" height="353" alt="image" src="https://github.com/user-attachments/assets/60f8d766-950e-443c-941a-96124c7c253e" />
 
-## 3. Cara Menjalankan Program
 
-Program dapat dikompilasi dan dijalankan menggunakan JDK (Java Development Kit) dari terminal:
 
-```bash
-# Masuk ke folder proyek
-cd src
-
-# Compile seluruh file .java
-javac -d ../bin Main.java model/*.java service/*.java util/*.java
-
-# Jalankan program
-cd ../bin
-java Main
-```
-
-![Proses Compile dan Run](screenshots/03-compile-run.png)
-*Gambar 3. Proses compile (`javac`) dan menjalankan program (`java Main`) di terminal.*
-
-## 4. Penjelasan Alur Program
+## 3. Penjelasan Alur Program
 
 1. Saat dijalankan, program menampilkan pesan selamat datang lalu masuk ke **Menu Utama** yang berisi 4 pilihan:
    1. Menu Data Orang Tua
@@ -67,8 +49,8 @@ java Main
    3. Menu Catatan Harian
    4. Keluar
 
-   ![Menu Utama](screenshots/04-menu-utama.png)
-   *Gambar 4. Tampilan Menu Utama.*
+   ![Menu Utama]
+   <img width="400" height="200" alt="image" src="https://github.com/user-attachments/assets/44855c6f-39e7-4e45-bc4f-000680dd7a7f" />
 
 2. Menu Utama akan terus muncul kembali (perulangan `while`) selama pengguna belum memilih opsi **Keluar**.
 3. Setiap pilihan menu (1–3) akan mengarahkan pengguna ke **submenu** masing-masing entitas, yang juga memiliki perulangannya sendiri agar pengguna bisa melakukan banyak operasi berturut-turut sebelum kembali ke Menu Utama:
@@ -76,49 +58,45 @@ java Main
    - **Menu Data Anak**: Daftarkan Anak Baru, Tampilkan Semua, Update, Hapus, Kembali.
    - **Menu Catatan Harian**: Input Laporan Harian, Lihat Riwayat Aktivitas Anak, Edit Laporan, Hapus Laporan, Kembali.
 
-   ![Submenu Orang Tua, Anak, dan Catatan Harian](screenshots/05-submenu.png)
-   *Gambar 5. Tampilan ketiga submenu (Orang Tua, Anak, Catatan Harian).*
+   ![Submenu Orang Tua, Anak, dan Catatan Harian]
+   <img width="241" height="126" alt="image" src="https://github.com/user-attachments/assets/60ca5dd5-5116-401c-8024-05c4c542b99b" />
+   <img width="211" height="126" alt="image" src="https://github.com/user-attachments/assets/ec21df25-6f36-4c35-8eaa-b3eb24c06f50" />
+   <img width="251" height="130" alt="image" src="https://github.com/user-attachments/assets/625fa500-d397-4642-af5b-033760154bc5" />
+
 
 4. Pemilihan menu dilakukan sepenuhnya melalui **inputan angka** dari keyboard, diproses menggunakan struktur percabangan `switch-case`.
-5. Setiap operasi Create/Update akan meminta input data satu per satu, dan setiap input divalidasi sebelum diterima oleh sistem (lihat bagian Nilai Tambah).
+5. Setiap operasi Create/Update akan meminta input data satu per satu, dan setiap input divalidasi sebelum diterima oleh sistem.
 
-   ![Contoh Input Data (Tambah Orang Tua/Anak)](screenshots/06-tambah-data.png)
-   *Gambar 6. Contoh proses input data baru, misalnya menambahkan Orang Tua atau Anak.*
+   ![Contoh Input Data (Tambah Orang Tua/Anak)]
+   <img width="294" height="256" alt="image" src="https://github.com/user-attachments/assets/47f86005-4590-4cab-bf03-bf8b21fdc434" />
 
-   ![Contoh Data Berhasil Ditambahkan](screenshots/07-hasil-tambah.png)
-   *Gambar 7. Pesan konfirmasi dan hasil `tampilkanSemua...()` setelah data berhasil disimpan.*
 
-6. Relasi antar data dijaga secara sederhana:
+   ![Contoh Data Berhasil Ditambahkan]
+   <img width="559" height="186" alt="image" src="https://github.com/user-attachments/assets/e98b1610-0d93-4ea4-8ec2-514f29bc6f88" />
+
+
+7. Relasi antar data dijaga secara sederhana:
    - Anak tidak bisa didaftarkan jika `idOrangTua` yang dimasukkan belum terdaftar di data OrangTua.
    - Catatan Harian tidak bisa dibuat jika `idAnak` yang dimasukkan belum terdaftar di data Anak.
 
-   ![Validasi Relasi Data Gagal](screenshots/08-validasi-relasi.png)
-   *Gambar 8. Contoh pesan error saat mendaftarkan Anak dengan `idOrangTua` yang belum terdaftar.*
+   ![Validasi Relasi Data Gagal]
+   <img width="477" height="180" alt="image" src="https://github.com/user-attachments/assets/278791f6-454b-4e0f-9263-50782a5ed44e" />
 
-7. Fungsi **Read** menampilkan data menggunakan perulangan `for`, baik untuk menampilkan seluruh daftar (anak/orang tua) maupun untuk menampilkan riwayat aktivitas harian milik seorang anak tertentu.
 
-   ![Riwayat Aktivitas Harian Anak](screenshots/09-riwayat-anak.png)
-   *Gambar 9. Tampilan riwayat Catatan Harian untuk satu anak tertentu.*
+8. Fungsi **Read** menampilkan data menggunakan perulangan `for`, baik untuk menampilkan seluruh daftar (anak/orang tua) maupun untuk menampilkan riwayat aktivitas harian milik seorang anak tertentu.
 
-8. Program hanya berhenti ketika pengguna memilih menu **Keluar (4)** pada Menu Utama.
+   ![Riwayat Aktivitas Harian Anak]
+   <img width="685" height="203" alt="image" src="https://github.com/user-attachments/assets/0a6d835b-7367-41e0-bcbb-0a5e7e1d19b8" />
 
-   ![Program Keluar](screenshots/10-keluar.png)
-   *Gambar 10. Pesan penutup saat pengguna memilih menu Keluar.*
 
-## 5. Penjelasan Penerapan Ketentuan Umum
+9. Program hanya berhenti ketika pengguna memilih menu **Keluar (4)** pada Menu Utama.
 
-| Ketentuan | Lokasi Penerapan |
-|---|---|
-| Minimal 3 class di luar entry point | `OrangTua`, `Anak`, `CatatanHarian` (model), `OrangTuaService`, `AnakService`, `CatatanHarianService` (service), `InputValidator` (util) — total 7 class di luar `Main` |
-| Minimal 3 properties pada class entitas | `Anak` memiliki 5 atribut, `OrangTua` 4 atribut, `CatatanHarian` 4 atribut |
-| Constructor | Setiap class model (`OrangTua`, `Anak`, `CatatanHarian`) memiliki constructor untuk inisialisasi objek |
-| ArrayList | `ArrayList<OrangTua>`, `ArrayList<Anak>`, `ArrayList<CatatanHarian>` pada masing-masing class service |
-| Percabangan menu | `switch-case` pada `Main.java` untuk memilih menu utama dan submenu |
-| Pemilihan menu via inputan | Menggunakan `Scanner` dan `InputValidator.getMenuChoice()` |
-| Perulangan agar program tidak berhenti | `while (berjalan)` pada `Main.java` (menu utama) dan `while (!kembali)` pada tiap submenu |
-| Perulangan menampilkan data | `for` loop pada method `tampilkanSemuaOrangTua()`, `tampilkanSemuaAnak()`, dan `tampilkanRiwayatAnak()` |
+   ![Program Keluar]
+   <img width="544" height="243" alt="image" src="https://github.com/user-attachments/assets/0c1f158a-99a1-4aed-9223-d35df9a88463" />
 
-## 6. Penjelasan Penerapan Nilai Tambah
+
+
+## 3. Penjelasan Penerapan Nilai Tambah
 
 ### a. Access Modifier
 Seluruh atribut pada class model (`OrangTua`, `Anak`, `CatatanHarian`) dideklarasikan sebagai `private`, sedangkan method yang perlu diakses dari luar class dideklarasikan `public`. Pada `Main.java`, method-method submenu (`menuOrangTua`, `menuAnak`, `menuCatatanHarian`, `tampilkanMenuUtama`) dideklarasikan `private static` karena hanya digunakan secara internal di dalam class `Main`.
@@ -134,19 +112,15 @@ Seluruh input dari pengguna divalidasi melalui class `InputValidator` sebelum di
 - **Format tanggal** (`ambilTanggal`) — memastikan tanggal diinput dengan format `YYYY-MM-DD`.
 - **Pilihan menu dalam rentang valid** (`ambilPilihanMenu`) — menolak input huruf atau angka di luar rentang pilihan menu yang tersedia.
 
-![Contoh Validasi Input Gagal](screenshots/11-validasi-input.png)
-*Gambar 11. Contoh pesan error saat input tidak valid (misalnya umur diisi huruf, atau nomor HP kurang dari 8 digit).*
+![Contoh Validasi Input Gagal]
+<img width="298" height="132" alt="image" src="https://github.com/user-attachments/assets/a038fb0d-f413-4861-9933-358e35593fc6" />
 
-Selain itu, terdapat validasi logika bisnis pada lapisan *service*, seperti:
+Selain itu, terdapat validasi penting, seperti:
 - Mencegah pendaftaran ID yang sudah dipakai (ID Orang Tua/Anak harus unik).
 - Mencegah pendaftaran anak dengan `idOrangTua` yang belum terdaftar.
 - Mencegah pembuatan catatan harian dengan `idAnak` yang belum terdaftar.
-- Menampilkan pesan yang jelas apabila data yang dicari (untuk update/hapus/lihat riwayat) tidak ditemukan.
 
-![Contoh Update dan Hapus Data](screenshots/12-update-hapus.png)
-*Gambar 12. Contoh proses Update dan Hapus data (mis. Update Data Anak, lalu Hapus Data Orang Tua).*
 
-## 7. Catatan Tambahan
 
-- Data hanya tersimpan selama program berjalan (in-memory dengan `ArrayList`), sehingga akan hilang setiap kali program ditutup. Ini sesuai dengan cakupan tugas minpro yang berfokus pada penerapan konsep PBO, bukan persistensi data.
+## 4. Catatan Tambahan
 - ID Catatan Harian (`idCatatan`) dibuat otomatis oleh sistem (auto-increment, format `C1`, `C2`, dst.) agar pengasuh tidak perlu menghafal/mengetik ID secara manual.
